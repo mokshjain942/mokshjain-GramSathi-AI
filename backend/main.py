@@ -1,8 +1,22 @@
 import sys
 import os
+import types
 
-# Add parent directory of 'backend' to sys.path to enable unified package imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# Resolve directories
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+
+# Add directories to Python module search path
+sys.path.insert(0, parent_dir)
+sys.path.insert(0, current_dir)
+
+# Mock 'backend' module in sys.modules if it is not importable (e.g., when root is set to 'backend')
+try:
+    import backend
+except ImportError:
+    backend_mock = types.ModuleType("backend")
+    backend_mock.__path__ = [current_dir]
+    sys.modules["backend"] = backend_mock
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
