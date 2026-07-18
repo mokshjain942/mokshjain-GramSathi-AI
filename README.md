@@ -1,114 +1,462 @@
-# GramSathi AI
-> **Empowering Every Village, One Click at a Time.**
+<div align="center">
 
-GramSathi AI is a digital platform designed as a **Digital Village Operating System** to solve rural accessibility challenges. It provides a simple, multilingual, and voice-enabled gateway for rural citizens to access government schemes, local business directories, clinics, classrooms, notice boards, and emergency hotlines.
+<img src="Gramsathi-AI banner.png" width="100%" alt="GramSathi AI Banner"/>
+
+# 🌾 GramSathi AI
+
+### AI-Powered Multilingual Digital Village Platform
+
+**Empowering Every Village, One Click at a Time.**
+
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react)]()
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)]()
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python)]()
+[![Groq](https://img.shields.io/badge/AI-Groq%20Llama%203.3-000000?style=for-the-badge)]()
+[![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?style=for-the-badge&logo=supabase)]()
+[![Vercel](https://img.shields.io/badge/Frontend-Vercel-black?style=for-the-badge&logo=vercel)]()
+[![Render](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render)]()
+
+<p>
+
+<a href="https://frontend-blue-ten-qejhvmgyus.vercel.app/">
+<img src="https://img.shields.io/badge/🌐 Live Demo-16a34a?style=for-the-badge">
+</a>
+
+<a href="https://github.com/mokshjain942/mokshjain-GramSathi-AI">
+<img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github">
+</a>
+
+<a href="#">
+<img src="https://img.shields.io/badge/🎥 Demo Video-red?style=for-the-badge">
+</a>
+
+</p>
+
+⭐ Idea2Impact 2026 Hackathon Submission
+
+</div>
 
 ---
 
-## 🏗️ System Architecture
+# 📖 Overview
 
-```mermaid
-graph TD
-    User([Rural Citizen]) <--> |Voice/Click Interaction| FE[React + Vite Frontend]
-    FE <--> |JSON API / REST| BE[FastAPI Python Backend]
-    
-    subgraph Data & AI Layers
-        BE <--> |Query & Auth| DB[(Supabase DB & Auth)]
-        BE <--> |Chat & Analysis| LLM[Groq Llama 3.3 70B]
-    end
+GramSathi AI is an AI-powered multilingual Digital Village Platform that enables rural citizens to access government schemes, healthcare, education, emergency services, village maps, and local businesses through a single AI-powered interface.
 
-    subgraph Fallback / Demo Engine
-        BE <--> |In-Memory / Local Storage| LocalStore[(Mock fallback database)]
-    end
+Instead of navigating multiple government websites, users can simply ask questions in Hindi or English using voice or text and receive intelligent responses instantly.
+
+The platform combines AI, multilingual communication, public services, and digital inclusion into one modern web application.
+
+---
+
+# 🌱 Hackathon Theme
+
+## Sustainability & Social Impact
+
+### Domains
+
+- Rural Development
+- Government Services
+- Digital Inclusion
+- Education
+- Healthcare
+- Community Platform
+- Financial Inclusion
+
+---
+
+# 🚀 Key Features
+
+## 🤖 AI Assistant
+
+- Groq Llama 3.3 Powered
+- Natural Language Queries
+- Smart Recommendations
+- Government Information
+- Agriculture Guidance
+
+---
+
+## 🎤 Voice Assistant
+
+- Speech Recognition
+- Voice Commands
+- Text to Speech
+
+---
+
+## 🏛 Government Scheme Portal
+
+- Agriculture Schemes
+- Pension Schemes
+- Housing Schemes
+- Student Scholarships
+
+---
+
+## 🏥 Healthcare Services
+
+- Nearby Health Centers
+- Medical Information
+- Health Awareness
+- Vaccination Details
+
+---
+
+## 🎓 Digital Education
+
+- Scholarships
+- Education Resources
+- Learning Support
+
+---
+
+## 🛍 Local Business Directory
+
+Support local village businesses digitally.
+
+---
+
+## 🗺 Interactive Village Map
+
+Locate
+
+- Panchayat
+- Hospitals
+- Schools
+- Shops
+- Community Centers
+
+---
+
+## 🚨 Emergency Services
+
+Quick access to
+
+- Police
+- Ambulance
+- Fire Brigade
+- Veterinary Services
+- Village Head
+
+---
+
+## 📢 Notice Board
+
+Village announcements
+
+Government updates
+
+Emergency alerts
+
+---
+
+## 🌍 Multilingual
+
+Supports
+
+- Hindi
+- English
+
+---
+
+# 🤖 AI Workflow
+
+```text
+User
+
+↓
+
+Voice / Text Input
+
+↓
+
+Speech Recognition
+
+↓
+
+FastAPI Backend
+
+↓
+
+Groq Llama 3.3
+
+↓
+
+Context Processing
+
+↓
+
+Government Knowledge
+
+↓
+
+AI Response
+
+↓
+
+Voice + Text Output
 ```
 
 ---
 
-## 🔄 Workflow Diagram
+# 🏗 System Architecture
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as Rural Citizen
-    participant FE as React Frontend
-    participant BE as FastAPI Backend
-    participant LLM as Groq Llama 3.3 70B
-
-    User->>FE: Speaks into Microphone (Hindi/English)
-    FE->>FE: Converts Speech to Text (Web Speech API)
-    FE->>BE: POST /api/chat (Query text + Lang)
-    BE->>LLM: Requests completion with System Prompts
-    LLM-->>BE: Returns simple, friendly response
-    BE-->>FE: Returns reply payload
-    FE->>User: Renders text & speaks out response (Text-To-Speech)
+```text
+React Frontend
+        │
+        ▼
+ FastAPI Backend
+        │
+        ▼
+ Groq AI API
+        │
+        ▼
+Supabase Database
 ```
 
 ---
 
-## 📊 Data Flow Diagram
+# ⚙ Tech Stack
 
-```mermaid
-flowchart LR
-    Profile[(User Profile: Farmer, UP)] --> |Injected Context| Recommend[AI Recommendation Engine]
-    Schemes[(Schemes Database)] --> |Metadata Matching| Recommend
-    Recommend --> |Processed by Llama 70B| Output[Customized Scheme Roadmap in Hindi/English]
-    Output --> |Direct Action Card| User([Rural Citizen])
+## Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Leaflet.js
+
+## Backend
+
+- FastAPI
+- Python
+
+## AI
+
+- Groq API
+- Llama 3.3 70B
+
+## Database
+
+- Supabase
+
+## Deployment
+
+- Vercel
+- Render
+
+---
+
+# 📷 Screenshots
+
+## 🏠 Dashboard
+
+<img src="assets/dashboard.png"/>
+
+---
+
+## 🤖 AI Assistant
+
+<img src="assets/chatbot.png"/>
+
+---
+
+## 🏛 Government Schemes
+
+<img src="assets/schemes.png"/>
+
+---
+
+## 🗺 Village Map
+
+<img src="assets/village-map.png"/>
+
+---
+
+## 🚨 Emergency Services
+
+<img src="assets/emergency.png"/>
+
+---
+
+## 📝 User Registration
+
+<img src="assets/signup.png"/>
+
+---
+
+# 📂 Project Structure
+
+```text
+GramSathi-AI/
+
+│── frontend/
+
+│── backend/
+
+│── assets/
+
+│── README.md
+
+│── requirements.txt
+
+│── package.json
 ```
 
 ---
 
-## ✨ Features
-1. **Government Schemes**: Search and filter central/state schemes. Instant eligibility checks and AI-powered recommendations based on user occupation.
-2. **Healthcare Portal**: Live directory of nearby clinics, medicine notifications, vaccination trackers, and daily wellness tips.
-3. **Digital Education**: Directory of schools, available scholarships, career paths, and short vocational training lessons.
-4. **Local Shops Directory**: Village market listings for farmers, tailors, mechanics, electricians, and women entrepreneurs.
-5. **Interactive Village Map**: Leaflet.js canvas mapping primary community coordinates (Panchayat, school, water pump).
-6. **AI Voice Assistant**: Complete hands-free microphone input and audio playback support in English and Hindi.
-7. **Notice Board**: Categorized Gram Sabha notices (electricity cuts, water supply notices, health camps).
-8. **Offline Mode Capability**: Caches schemes and emergency contact details for offline access when network drops.
+# 💻 Installation
 
----
+## Clone Repository
 
-## 💡 Innovation & Unique Selling Points (USPs)
-* **Voice-First Design**: Solves typing challenges for elderly or neo-literate citizens.
-* **Dual-Language Dynamic Translation**: Dynamic switches for all labels between English and Hindi.
-* **Dual-Mode Architectural Fallbacks**: Runs instantly without keys using mock layers, and connects to live production services seamlessly when environment variables are supplied.
-* **PostgreSQL pgvector ready**: Relational database schema enables location-based business matching and semantic schemes matching.
-
----
-
-## 📈 Impact & Scalability Analysis
-* **Impact**: Empowers rural families by bypass middlemen. Increases vaccine awareness and links local craftsmen to neighboring customers.
-* **Scalability**: Python FastAPI is asynchronous, and Supabase scales on PostgreSQL. The lightweight index sizes and offline caching limit cellular data consumption in remote environments.
-
----
-
-## 🚀 Quick Start Instructions
-
-### 1. Clone & Set Environment Variables
-Create a `.env` file in the root:
-```env
-GROQ_API_KEY=your_groq_api_key_here
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_ANON_KEY=your_supabase_anon_key
+```bash
+git clone https://github.com/mokshjain942/mokshjain-GramSathi-AI.git
 ```
 
-### 2. Run Backend (FastAPI)
+---
+
+## Backend
+
 ```bash
 cd backend
+
 python -m venv venv
-# On Windows:
-venv\Scripts\activate
+
 pip install -r requirements.txt
+
 python main.py
 ```
-*API will run on `http://127.0.0.1:8000`*
 
-### 3. Run Frontend (React + Vite)
-In another terminal:
+---
+
+## Frontend
+
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
-*Frontend will run on `http://localhost:5173`*
+
+---
+
+# 🌍 Live Demo
+
+Frontend
+
+https://frontend-blue-ten-qejhvmgyus.vercel.app/
+
+Backend
+
+https://mokshjain-gramsathi-ai.onrender.com/
+
+---
+
+# 📈 Impact
+
+✅ Digital Inclusion
+
+✅ Rural Development
+
+✅ AI Accessibility
+
+✅ Government Service Simplification
+
+✅ Emergency Preparedness
+
+✅ Multilingual Communication
+
+✅ Community Empowerment
+
+---
+
+# 📊 Why GramSathi AI?
+
+| Traditional System | GramSathi AI |
+|-------------------|--------------|
+| Multiple Websites | Single Platform |
+| English Only | Hindi + English |
+| Manual Search | AI Search |
+| Text Only | Voice + Text |
+| Difficult Navigation | Simple Interface |
+| Static Information | Intelligent Assistance |
+
+---
+
+# 🔮 Future Scope
+
+- Mobile Application
+- DigiLocker Integration
+- OCR Document Verification
+- AI Eligibility Prediction
+- Offline AI
+- Regional Languages
+- Farmer Marketplace
+- Government API Integration
+
+---
+
+# 🏆 Hackathon Evaluation Alignment
+
+| Criteria | Status |
+|----------|--------|
+| Real Problem | ✅ |
+| AI at Core | ✅ |
+| Live Deployment | ✅ |
+| Innovation | ✅ |
+| Social Impact | ✅ |
+| Documentation | ✅ |
+
+---
+
+# 👨‍💻 Developer
+
+## Moksh Jain
+
+AI & Full Stack Developer
+
+📧 Email  
+mokshjain942@gmail.com
+
+🌐 Portfolio  
+https://mj3dportfolio.netlify.app/
+
+💼 LinkedIn  
+https://www.linkedin.com/in/mokshjain0710
+
+💻 GitHub  
+https://github.com/mokshjain942
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to GitHub
+5. Open a Pull Request
+
+---
+
+# ⭐ Support
+
+If you like this project,
+
+⭐ Star the repository.
+
+Share it with your friends.
+
+---
+
+<div align="center">
+
+## 🌾 GramSathi AI
+
+### Empowering Every Village, One Click at a Time.
+
+Made with ❤️ by **Moksh Jain**
+
+</div>
