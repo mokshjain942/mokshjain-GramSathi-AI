@@ -199,19 +199,53 @@ Voice + Text Output
 
 ---
 
-# 🏗 System Architecture
+## 🏗️ System Architecture
 
-```text
-React Frontend
-        │
-        ▼
- FastAPI Backend
-        │
-        ▼
- Groq AI API
-        │
-        ▼
-Supabase Database
+```mermaid
+graph TD
+    User([Rural Citizen]) <--> |Voice/Click Interaction| FE[React + Vite Frontend]
+    FE <--> |JSON API / REST| BE[FastAPI Python Backend]
+    
+    subgraph Data & AI Layers
+        BE <--> |Query & Auth| DB[(Supabase DB & Auth)]
+        BE <--> |Chat & Analysis| LLM[Groq Llama 3.3 70B]
+    end
+
+    subgraph Fallback / Demo Engine
+        BE <--> |In-Memory / Local Storage| LocalStore[(Mock fallback database)]
+    end
+```
+
+---
+## 🔄 Workflow Diagram
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Rural Citizen
+    participant FE as React Frontend
+    participant BE as FastAPI Backend
+    participant LLM as Groq Llama 3.3 70B
+
+    User->>FE: Speaks into Microphone (Hindi/English)
+    FE->>FE: Converts Speech to Text (Web Speech API)
+    FE->>BE: POST /api/chat (Query text + Lang)
+    BE->>LLM: Requests completion with System Prompts
+    LLM-->>BE: Returns simple, friendly response
+    BE-->>FE: Returns reply payload
+    FE->>User: Renders text & speaks out response (Text-To-Speech)
+```
+
+---
+
+## 📊 Data Flow Diagram
+
+```mermaid
+flowchart LR
+    Profile[(User Profile: Farmer, UP)] --> |Injected Context| Recommend[AI Recommendation Engine]
+    Schemes[(Schemes Database)] --> |Metadata Matching| Recommend
+    Recommend --> |Processed by Llama 70B| Output[Customized Scheme Roadmap in Hindi/English]
+    Output --> |Direct Action Card| User([Rural Citizen])
 ```
 
 ---
