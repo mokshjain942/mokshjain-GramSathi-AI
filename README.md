@@ -284,37 +284,37 @@ flowchart LR
 
 ## 🏠 Dashboard
 
-<img src="assets/dashboard.png"/>
+<img src="dashboard.png.png"/>
 
 ---
 
 ## 🤖 AI Assistant
 
-<img src="assets/chatbot.png"/>
+<img src="AI-chatbot-png.png"/>
 
 ---
 
 ## 🏛 Government Schemes
 
-<img src="assets/schemes.png"/>
+<img src="govt-schemes.png"/>
 
 ---
 
 ## 🗺 Village Map
 
-<img src="assets/village-map.png"/>
+<img src="villagemap.png"/>
 
 ---
 
 ## 🚨 Emergency Services
 
-<img src="assets/emergency.png"/>
+<img src="emergency.png"/>
 
 ---
 
 ## 📝 User Registration
 
-<img src="assets/signup.png"/>
+<img src="sign-in.png.png"/>
 
 ---
 
